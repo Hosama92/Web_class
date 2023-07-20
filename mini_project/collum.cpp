@@ -2,12 +2,14 @@
 #include <stdio.h>
 #include <iostream>
 #include "collum.h"
+#include <fstream>
 
 using namespace std;
 void collum::list_up(int num)
 {
 	
 	int i,j;
+	count = 0;
 	total_pirce = 0;
 	__int64 k;
 
@@ -76,33 +78,76 @@ void collum::list_up(int num)
 					<< endl << "2. 종료" << endl;
 				cin >> j;
 				cout << "" << endl;
+				for_write_result[4].number = price;
 				if (j == 1) {
 					for_break_check = false;
 				}
 				else if(j == 2){
-					for_write_result[4].number = price;
 					for_break_check = true;
 				}
-				//break;
+				
 			}
-					
+			case 6:
+			{
+				for_CSV();
+			}
 		}
-			if (for_break_check == true)
-			{
-				break;
-			}
-			else
-			{
-				continue;
-			}
+		list_to_receipt(count);
+		if (for_break_check == true)
+		{
+			break;
+		}
+		else
+		{
+			count++;
+			continue;
+		}
 	}
 }
-//for_write_result[6] = {날짜, 권종, 연령구분, 수량, 가격, 우대사항}
+//for_write_result[6] = {날짜 [0], 권종 [1], 연령구분 [2], 수량 [3], 가격 [4], 우대사항 [5]}
+//receipt_from_list[num][5] = {권종 , 연령구분 , 수량, 가격 , 우대사항}
 void collum::receipt()
 {
+	int num;
 	cout << "" << endl;
-	cout << "티켓 발권을 종료합니다." << endl << endl;
+	cout << "티켓 발권을 종료합니다. 감사합니다." << endl << endl;
 	cout << "======================= 에버랜드 =======================" << endl;
+	for (num = 0; num <= count; num++)
+	{
+		cout << receipt_from_list[num][0].word << "\t" << receipt_from_list[num][1].word << "  " << "x\t" << receipt_from_list[num][2].number<<"\t"<< receipt_from_list[num][3].number << "원" << "         " << "*우대적용 : " << receipt_from_list[num][4].word << endl;
+	}
+	cout << "" << endl;
+	cout << "입장료 총액은 " <<total_pirce<<"원 입니다."<< endl;
+	cout << "====================================================" << endl;
+	cout << "" << endl;
+	cout << "계속 진행(1: 새로운 주문, 2: 프로그램 종료) : ";
+}
+void collum::list_to_receipt(int num)
+{
+	strcpy(receipt_from_list[num][0].word, for_write_result[1].word);
+	strcpy(receipt_from_list[num][1].word, for_write_result[2].word);
+	receipt_from_list[num][2].number = for_write_result[3].number;
+	receipt_from_list[num][3].number = for_write_result[4].number;
+	strcpy(receipt_from_list[num][4].word, for_write_result[5].word);
+}
+
+void collum::for_CSV()
+{
+	ofstream outputFile("test.csv", ios_base::app);
+	if (!outputFile.is_open()) {
+		cerr << "파일을 열 수 없습니다." << endl;
+	}
+	
+	outputFile << for_write_result[0].number << ",";
+	outputFile << for_write_result[1].word << ",";
+	outputFile << for_write_result[2].word << ",";
+	outputFile << for_write_result[3].number << ",";
+	outputFile << for_write_result[4].number << ",";
+	outputFile << for_write_result[5].word << endl;
+	
+	outputFile.close();
+
+	std::cout << "CSV 파일에 저장되었습니다." << std::endl;
 }
 
 int  now::date() {
@@ -118,7 +163,17 @@ void collum::for_test()
 	cout << for_write_result[3].number << endl;
 	cout << for_write_result[4].number << endl;
 	cout << for_write_result[5].word << endl;
-	//
+	//int num;
+	//for (num = 0; num < 2; num++)
+	//{
+	//	cout << receipt_from_list[num][0].word << endl;
+	//	cout << receipt_from_list[num][1].word << endl;
+	//	cout << receipt_from_list[num][2].number << endl;
+	//	cout << receipt_from_list[num][3].number << endl;
+	//	cout << receipt_from_list[num][4].word << endl;
+	//	cout << " "<< endl;
+	//}
+
 }
 
 int collum::age_checker(__int64 personal_num) //9207081032911 0007081032911

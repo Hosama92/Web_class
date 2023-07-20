@@ -58,49 +58,49 @@
 
 //******************************************************************
 
-//
-//
+
+
 //#include <iostream>
 //#include <fstream>
 //
 //int main() {
-//     배열 초기화
+//     //배열 초기화
 //    int for_write_result[6] = { 20191101, 1, 2, 3, 4, 5 }; // 예시 값으로 변경하여 사용하세요.
 //    int for_write_result2[6] = { 20230101, 6, 7, 8, 9, 10 }; // 예시 값으로 변경하여 사용하세요.
 //
-//     파일 열기 (추가 모드)
+//     //파일 열기 (추가 모드)
 //    std::ofstream outputFile("test.csv", std::ios_base::app);
 //
-//     파일 열기에 실패한 경우 예외 처리
+//     //파일 열기에 실패한 경우 예외 처리
 //    if (!outputFile.is_open()) {
 //        std::cerr << "파일을 열 수 없습니다." << std::endl;
 //        return 1;
 //    }
 //
-//     배열 값을 CSV 파일에 저장 (for_write_result)
+//     //배열 값을 CSV 파일에 저장 (for_write_result)
 //    for (int i = 0; i < 6; ++i) {
 //        outputFile << for_write_result[i];
 //
-//         마지막 값인 경우 줄 바꿈 문자를 넣지 않음
+//         //마지막 값인 경우 줄 바꿈 문자를 넣지 않음
 //        if (i != 5) {
 //            outputFile << ",";
 //        }
 //    }
 //
-//     새로운 줄로 이동
+//     //새로운 줄로 이동
 //    outputFile << std::endl;
 //
-//     배열 값을 CSV 파일에 저장 (for_write_result2)
+//     //배열 값을 CSV 파일에 저장 (for_write_result2)
 //    for (int i = 0; i < 6; ++i) {
 //        outputFile << for_write_result2[i];
 //
-//         마지막 값인 경우 줄 바꿈 문자를 넣지 않음
+//         //마지막 값인 경우 줄 바꿈 문자를 넣지 않음
 //        if (i != 5) {
 //            outputFile << ",";
 //        }
 //    }
 //
-//     파일 닫기
+//     //파일 닫기
 //    outputFile.close();
 //
 //    std::cout << "CSV 파일에 저장되었습니다." << std::endl;
@@ -110,9 +110,9 @@
 
 
 //*********************************************
-#define _CRT_SECURE_NO_WARNINGS //당일 날짜 출력해주는 함수
-#include <ctime>
-#include <stdio.h>
+//#define _CRT_SECURE_NO_WARNINGS //당일 날짜 출력해주는 함수
+//#include <ctime>
+//#include <stdio.h>
 
 //
 //int main() {
