@@ -3,7 +3,6 @@
 #include <iostream>
 #include "collum.h"
 
-
 int main() {
 	collum pro;
 	now now;
@@ -11,13 +10,6 @@ int main() {
 	while (1)
 	{
 		pro.list_up(1);
-		//pro.list_up(2);
-		//pro.list_up(3);
-		//pro.list_up(4);
-		//pro.list_up(5);
-
-		//printf("%d", now.date());
-		pro.for_test();
 		pro.receipt();
 		std::cin >> i;
 		if (i == 1)
@@ -28,8 +20,6 @@ int main() {
 		{
 			break;
 		}
-		//printf("%d",pro.age_checker(9207081032911));
-
 	}
-		return 0;
+	return 0;
 }

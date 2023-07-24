@@ -3,7 +3,7 @@
 #include <ctime>
 #include <stdio.h>
 
-union WordOrNumber {
+union WordOrNumber { // 숫자 글자 다 쓸 수있는 배열
 	char word[50]; 
 	int number;    
 };
@@ -22,7 +22,7 @@ private:
 public:
 	void list_up(int num);
 	void receipt();	
-	void list_to_receipt(int num); //리스트에서 영수증으로 정보 넘기는 함수
+	void list_to_receipt(int num); // 리스트에서 영수증으로 정보 넘기는 함수
 	int age_checker(__int64 personal_num);
 	void for_CSV();
 	void for_test();

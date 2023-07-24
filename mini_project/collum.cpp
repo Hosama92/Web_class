@@ -7,15 +7,15 @@
 using namespace std;
 void collum::list_up(int num)
 {
+	collum collum;
+	now now;
 	
 	int i,j;
 	count = 0;
 	total_pirce = 0;
 	__int64 k;
-
-	collum collum;
-	now now;
 	for_write_result[0].number = now.date();
+	
 	while (1) {
 		switch (num) {
 			case 1:
@@ -29,8 +29,6 @@ void collum::list_up(int num)
 				cout << "" << endl;
 				strcpy(for_write_result[1].word, ticket_kind[j - 1]); //결과값 배열 2번째에 티켓종류를 넣어줌
 				ticket_kind_check_num = j-1; // 0 or 1
-				//break;
-				
 			}
 			case 2:
 			{
@@ -39,8 +37,6 @@ void collum::list_up(int num)
 				cout << "" << endl;
 				strcpy(for_write_result[2].word, age_kind[age_checker(k)]);
 				age_kind_check_num = age_checker(k);
-				//printf("age_kind_check_num = %d", age_kind_check_num);
-				//break;
 			}
 			case 3:
 			{
@@ -49,14 +45,10 @@ void collum::list_up(int num)
 				cout <<""<< endl;
 				price = j * ticket_price[age_kind_check_num][ticket_kind_check_num];
 				for_write_result[3].number = j;
-				//printf("price = %d", price);
-				//break;
-				
 			}
 			case 4:
 			{
 				cout << "우대사항을 선택하세요." << endl;
-				//{없음,장애인,국가유공자,다자녀,임산부}
 				for (i = 0; i < 5; i++)
 				{
 					cout << i + 1 << ". " << preferential[i] << endl;
@@ -65,7 +57,6 @@ void collum::list_up(int num)
 				cout << "" << endl;
 				price = (price*preferential_sale_rate[j - 1])/100;
 				strcpy(for_write_result[5].word, preferential[j-1]);
-				//break;
 			}
 			case 5:
 			{
@@ -85,7 +76,6 @@ void collum::list_up(int num)
 				else if(j == 2){
 					for_break_check = true;
 				}
-				
 			}
 			case 6:
 			{
@@ -104,8 +94,7 @@ void collum::list_up(int num)
 		}
 	}
 }
-//for_write_result[6] = {날짜 [0], 권종 [1], 연령구분 [2], 수량 [3], 가격 [4], 우대사항 [5]}
-//receipt_from_list[num][5] = {권종 , 연령구분 , 수량, 가격 , 우대사항}
+
 void collum::receipt()
 {
 	int num;
@@ -122,6 +111,7 @@ void collum::receipt()
 	cout << "" << endl;
 	cout << "계속 진행(1: 새로운 주문, 2: 프로그램 종료) : ";
 }
+
 void collum::list_to_receipt(int num)
 {
 	strcpy(receipt_from_list[num][0].word, for_write_result[1].word);
@@ -155,28 +145,7 @@ int  now::date() {
 	return real_time;
 }
 
-void collum::for_test()
-{
-	cout << for_write_result[0].number << endl;
-	cout << for_write_result[1].word << endl;
-	cout << for_write_result[2].word << endl;
-	cout << for_write_result[3].number << endl;
-	cout << for_write_result[4].number << endl;
-	cout << for_write_result[5].word << endl;
-	//int num;
-	//for (num = 0; num < 2; num++)
-	//{
-	//	cout << receipt_from_list[num][0].word << endl;
-	//	cout << receipt_from_list[num][1].word << endl;
-	//	cout << receipt_from_list[num][2].number << endl;
-	//	cout << receipt_from_list[num][3].number << endl;
-	//	cout << receipt_from_list[num][4].word << endl;
-	//	cout << " "<< endl;
-	//}
-
-}
-
-int collum::age_checker(__int64 personal_num) //9207081032911 0007081032911
+int collum::age_checker(__int64 personal_num)
 {
 	now now;
 	collum collum;
@@ -188,10 +157,6 @@ int collum::age_checker(__int64 personal_num) //9207081032911 0007081032911
 	{
 		birth_date = (personal_num / 10000000) + 20000000;
 	}
-	//printf("personal_num = %ld \n", personal_num);
-	//printf("personal_num/10000000 = %ld \n", personal_num / 10000000);
-	//printf("birth_date = %ld \n", birth_date);
-	//printf("now.date = %ld \n", now.date());
 	age = (now.date() - birth_date)/10000;
 	if (age <= 2) {
 		return 4;
