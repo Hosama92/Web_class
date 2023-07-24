@@ -4,8 +4,8 @@
 #include "collum.h"
  
 int main() {
-	collum pro;
-	now now;
+	Collum pro;
+	Now now;
 	int i;
 	while (1)
 	{

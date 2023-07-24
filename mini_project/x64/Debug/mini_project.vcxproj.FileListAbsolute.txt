@@ -1,1 +1,2 @@
 C:\Users\KHY\Desktop\C++\for_git\Web_class\mini_project\x64\Debug\mini_project.exe
+C:\Users\KHY\Desktop\C++\Web_class\mini_project\x64\Debug\mini_project.exe

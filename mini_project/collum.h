@@ -8,7 +8,7 @@ union WordOrNumber { // 숫자 글자 다 쓸 수있는 배열
 	int number;    
 }; 
 
-class collum {
+class Collum {
 private:
 	int price,count, total_pirce, age_kind_check_num, ticket_kind_check_num; 
 	bool for_break_check;
@@ -25,10 +25,9 @@ public:
 	void list_to_receipt(int num); // 리스트에서 영수증으로 정보 넘기는 함수
 	int age_checker(__int64 personal_num);
 	void for_CSV();
-	void for_test();
 };
 
-class now {
+class Now {
 	private:
 		time_t timer=time(NULL);;
 		struct tm* t = localtime(&timer);;

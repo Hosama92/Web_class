@@ -5,12 +5,12 @@
 #include <fstream>
 
 using namespace std;
-void collum::list_up(int num)
+void Collum::list_up(int num)
 {
-	collum collum;
-	now now;
+	Collum collum;
+	Now now;
 	 
-	int i,j;
+	int i,j; 
 	count = 0;
 	total_pirce = 0;
 	__int64 k;
@@ -95,7 +95,7 @@ void collum::list_up(int num)
 	}
 }
 
-void collum::receipt()
+void Collum::receipt()
 {
 	int num;
 	cout << "" << endl;
@@ -112,7 +112,7 @@ void collum::receipt()
 	cout << "계속 진행(1: 새로운 주문, 2: 프로그램 종료) : ";
 }
 
-void collum::list_to_receipt(int num)
+void Collum::list_to_receipt(int num)
 {
 	strcpy(receipt_from_list[num][0].word, for_write_result[1].word);
 	strcpy(receipt_from_list[num][1].word, for_write_result[2].word);
@@ -121,9 +121,9 @@ void collum::list_to_receipt(int num)
 	strcpy(receipt_from_list[num][4].word, for_write_result[5].word);
 }
 
-void collum::for_CSV()
+void Collum::for_CSV()
 {
-	ofstream outputFile("test.csv", ios_base::app);
+	ofstream outputFile("receipt.csv", ios_base::app);
 	if (!outputFile.is_open()) {
 		cerr << "파일을 열 수 없습니다." << endl;
 	}
@@ -140,15 +140,15 @@ void collum::for_CSV()
 	std::cout << "CSV 파일에 저장되었습니다." << std::endl;
 }
 
-int  now::date() {
+int  Now::date() {
 	int real_time = ((t->tm_year + 1900) * 10000)+((t->tm_mon + 1)*100)+ t->tm_mday;
 	return real_time;
 }
 
-int collum::age_checker(__int64 personal_num)
+int Collum::age_checker(__int64 personal_num)
 {
-	now now;
-	collum collum;
+	Now now;
+	Collum collum;
 	__int64 birth_date,age;
 	if (((personal_num / 1000000) % 10) == 2 || ((personal_num / 1000000) % 10) == 1) {
 		birth_date = (personal_num / 10000000) +19000000;
