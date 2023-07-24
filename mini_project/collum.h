@@ -6,7 +6,7 @@
 union WordOrNumber { // 숫자 글자 다 쓸 수있는 배열
 	char word[50]; 
 	int number;    
-};
+}; 
 
 class collum {
 private:

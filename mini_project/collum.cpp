@@ -9,7 +9,7 @@ void collum::list_up(int num)
 {
 	collum collum;
 	now now;
-	
+	 
 	int i,j;
 	count = 0;
 	total_pirce = 0;
